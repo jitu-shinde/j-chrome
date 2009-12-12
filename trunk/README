@@ -1,0 +1,17 @@
+To run the example frame...
+
+to build...
+
+ant build
+
+to run...
+
+java -jar jchrome.jar [theme]
+
+examples...
+
+java -jar jchrome.jar osx
+
+OR
+
+java -jar jchrome.jar xp
