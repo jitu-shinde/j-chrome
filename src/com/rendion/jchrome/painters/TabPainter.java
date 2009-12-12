@@ -196,7 +196,7 @@ public class TabPainter
       Paint p = g.getPaint();
       g.setClip(new Rectangle(xloc
           + (tab.getIcon() == null ? theme.TAB_ICON_INDENT + theme.TAB_TEXT_INDENT : theme.TAB_ICON_INDENT + ICON_SIZE
-              + theme.TAB_TEXT_INDENT), TOP, width - (tab.getIcon() == null ? -1 : 19), ICON_SIZE + 2));
+              + theme.TAB_TEXT_INDENT), TOP, width - (tab.getIcon() == null ? -1 : 19), ICON_SIZE + 4));
       GradientPaint painter = new GradientPaint(xloc + LEFT + (width > 70 ? width - 20 : width - 6), 18, new Color(0,
           0, 0, 255), xloc + LEFT + width, 18, new Color(0, 0, 0, 0));
       g.setPaint(painter);
