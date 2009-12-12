@@ -1,0 +1,35 @@
+<project name="jchrome" basedir="." default="jchrome.jar">
+  
+  <property name="bin" value="bin"/>
+  <property name="src" value="src"/>
+  <property name="etc" value="etc"/>
+  <property name="images" value="images"/>
+  <property name="jchrome.jar" value="jchrome.jar"/>
+  <property name="jchrome-src.zip" value="jchrome-src.zip"/>
+    
+  <target name="compile">
+    <delete dir="${bin}"/>   
+    <mkdir dir="${bin}"/>  
+    <javac nowarn="on" debug="on" debuglevel="lines,vars,source" srcdir="${src}" destdir="${bin}"/>
+  </target>
+  
+  <target name="unixFriendlySourceFiles">
+    <fixcrlf srcdir="${src}" includes="*.java" tab="remove" tablength="2" javafiles="yes" eol="lf"/>
+    <fixcrlf srcdir="." includes="build.xml" tab="remove" tablength="2" javafiles="no" eol="lf"/>
+  </target>
+  
+  <target name="jchrome.jar" depends="compile">
+    <delete file="${jchrome.jar}"/>
+    <copy todir="${bin}/${images}">
+     <fileset dir="${images}"/>
+    </copy> 
+    <jar destfile="${jchrome.jar}" basedir="${bin}" manifest="${etc}/MANIFEST.MF"/>
+  </target>
+
+  <target name="src.zip" depends="unixFriendlySourceFiles, jchrome.jar">
+    <delete file="${jchrome-src.zip}"/>
+    <zip destfile="${jchrome-src.zip}" basedir="." excludes="${bin}/**" />
+  </target>
+ 
+</project>
+
