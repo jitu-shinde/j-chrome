@@ -39,6 +39,7 @@ public class Theme
   public int TAB_ICON_INDENT;
   public int TAB_TEXT_BASELINE;
   public int TAB_WIDTH;
+  public int TAB_TEXT_SIZE;
   public int TAB_TEXT_INDENT;
   public boolean HINT_FRACTIONAL;
   public boolean HINT_ANTIALIAS;
@@ -108,6 +109,7 @@ public class Theme
     HINT_ANTIALIAS = getBoolean("hint.antialias");
     HINT_FRACTIONAL = getBoolean("hint.fractional");
     TAB_TEXT_INDENT = getInt("tab.text.indent");
+    TAB_TEXT_SIZE = getInt("tab.text.size");
     
 
     imageMaps = new HashMap<Boolean, EnumMap<TabState, EnumMap<TabState, Image>>>();
