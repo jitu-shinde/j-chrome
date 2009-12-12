@@ -43,7 +43,7 @@ public class JChromeTabbedPane extends JPanel implements WindowFocusListener, Mo
   private final ToolbarPainter toolbarPainter;
   private final TabRowPainter tabRowPainter;
   private final ArrayList<Tab> tabs = new ArrayList<Tab>(100);
-  private Font captionFont = new Font(Font.DIALOG, Font.PLAIN, 11);
+  private Font captionFont;
   private boolean hasFocus = true;
   private boolean paintBackground = true;
   private int leftMargin = 25;
@@ -61,6 +61,8 @@ public class JChromeTabbedPane extends JPanel implements WindowFocusListener, Mo
 
     toolbarPainter = new ToolbarPainter(this);
     tabRowPainter = new TabRowPainter(this);
+    
+    captionFont = new Font(Font.DIALOG, Font.PLAIN, theme.TAB_TEXT_SIZE);
 
     WindowUtils.installJComponentRepainterOnWindowFocusChanged(this);
     addMouseListener(this);
